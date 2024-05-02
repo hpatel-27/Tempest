@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const TOKEN_COOKIE_NAME = "PWProtectorToken";
+const TOKEN_COOKIE_NAME = "TempestToken";
 // In a real application, you will never hard-code this secret and you will
 // definitely never commit it to version control, ever
 const API_SECRET = process.env.API_SECRET_KEY;

@@ -71,6 +71,9 @@ api.getAllProviders().then( prv => {
     else {
         siteButton.value = '';
     }
+})
+.catch( err => {
+    console.error( 'Error message ' , err );
 });
 
 let currentAccount = null;
