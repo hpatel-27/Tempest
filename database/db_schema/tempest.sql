@@ -93,16 +93,17 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 DELETE FROM `user`;
 INSERT INTO `user` (`usr_id`, `usr_username`, `usr_password`, `usr_salt`, `usr_email`) VALUES
-    (1, 'student1', 'fa618ff05c687488bd740bd958a03380b47f75d61bd2172afa428954df92b55b', '1pdj4md7n24zr5u3wy3olp1r1a6p7otw', 'student1@mail.com'),
-	(2, 'student2', 'de67fbed51baa01ec9843db58bffafd28dfb02619875626002ccfe4533d353a1', 'k974s9egj23sujb7jhltggqh0dnss2eh', 'student2@mail.com'),
-    (3, 'student3', 'f5a05548ea49258d40eecf7afabc04b55f68953d5dc67bfd9dc90df7b51c7574', 'nhug7j4pps5zjceyjzgan5ftbnnngipf', 'student3@mail.com'),
-	(4, 'student4', '397080a248bf517bfbe5b3b994eb566cd37e8cb24121331c14ee92b351bcbb80', '7qk5hbkh2hpo7252ncuv2mxpk8mded0p', 'student4@mail.com'),
-    (5, 'student5', 'e744fd8303d95446446aaffc9ebc321f22bcbdbf2cd5419526bd0cbd1ef65920', 'hlejo01eq93t1862nxmr1a4cv6naypw7', 'student5@mail.com'),
+    (1, 'hpatel', 'fa618ff05c687488bd740bd958a03380b47f75d61bd2172afa428954df92b55b', '1pdj4md7n24zr5u3wy3olp1r1a6p7otw', 'hpatel@mail.com'),
+	(2, 'kkaneki', 'de67fbed51baa01ec9843db58bffafd28dfb02619875626002ccfe4533d353a1', 'k974s9egj23sujb7jhltggqh0dnss2eh', 'student2@mail.com'),
+    (3, 'eyeager', 'f5a05548ea49258d40eecf7afabc04b55f68953d5dc67bfd9dc90df7b51c7574', 'nhug7j4pps5zjceyjzgan5ftbnnngipf', 'kkaneki@mail.com'),
+	(4, 'awalker', '397080a248bf517bfbe5b3b994eb566cd37e8cb24121331c14ee92b351bcbb80', '7qk5hbkh2hpo7252ncuv2mxpk8mded0p', 'awalker@mail.com'),
+    (5, 'kleonard', 'e744fd8303d95446446aaffc9ebc321f22bcbdbf2cd5419526bd0cbd1ef65920', 'hlejo01eq93t1862nxmr1a4cv6naypw7', 'kleonard@mail.com'),
 	(6, 'student6', 'a6fa7595806d1b9b971d5676600bb4fbdd7297c6c998a6f326bf2c9013522aaa', 'vkvw3thggkw8vbgjtzz5px8eztlrvcji', 'student6@mail.com'),
     (7, 'student7', 'e4f6c53a2ac696f0b788e8ae9559f5a7d490e7516d68b99d2e401223d199eb95', 'g6mr1ki2acyp6x3yjsb59hscei665gw3', 'student7@mail.com'),
 	(8, 'student8', '1d897ca84ebdc0306ce6a174b7046b68c9b26cdb0484f0f72b6bc08fa2da5d64', 'y8u3n885aghdc2jw4s0u888uqvkxnec7', 'student8@mail.com'),
     (9, 'student9', '4038a883f19299ba24169b7cede15b299f7e5e30bc082601391978cb197fef74', 'bjg3r5e5hi8s5twkm9pwif5cfcjps74h', 'student9@mail.com'),
 	(10, 'student10', '432fc1b8bd3a4fa81895a321f0c7bac68d02d16de4e89757e55d143958a69196', 'lbw50wgv28lsgl7vor3pl95p2lvdc6a0 ', 'student10@mail.com');
+
 
 CREATE TABLE IF NOT EXISTS `user_provider` (
   `upr_usr_id` int(10) unsigned NOT NULL,
