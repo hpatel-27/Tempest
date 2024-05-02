@@ -6,7 +6,7 @@ html, body {
 }
 
 .btn.btn-primary.prv-btn:hover {
-    background-color: rgb(94, 175, 216);
+    background-color: rgb(31, 31, 31);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 
 
@@ -14,7 +14,7 @@ html, body {
 
 .btn.btn-primary.prv-btn {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
-    background-color: rgb(100, 189, 234);
+    background-color: rgb(49, 49, 48);
 
 }
 .accounts {
@@ -95,8 +95,11 @@ html, body {
 
 }
 
+.main-header {
+    display: flex;
+    flex-direction: row;
+}
 
-.profile-btn,
 .site-name-btn,
 .del-provider-btn,
 .update-provider-btn {
@@ -110,16 +113,15 @@ html, body {
 .new-account-btn:hover,
 .del-provider-btn:hover,
 .update-provider-btn:hover,
-#profile-container:hover,
 .new-group-btn:hover,
 .save-btn:hover,
 a.prv-btn:hover {
-    background-color: rgb(94, 175, 216);
+    background-color: rgb(31, 31, 31);
     
 }
 
 .sidebar .site {
-    background-color: rgb(100, 189, 234);
+    background-color: rgb(49, 49, 48);
     padding: 8px;
     margin-bottom: 5px;
     cursor: pointer;
@@ -131,14 +133,15 @@ a.prv-btn:hover {
 }
 
 
-.profile-btn {
-    width: 50%; 
+a.profile-btn {
+    width: 35%; 
+    font-size: 1.5rem;
     margin-bottom: 10px; 
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 10%;
+    margin-right: 10%;
     border: none;
     border-radius: 5px; 
-    background-color: rgb(100, 189, 234);
+    background-color: rgb(255, 217, 0);
     /* Button background color */
     color: white; 
     cursor: pointer;
@@ -146,6 +149,10 @@ a.prv-btn:hover {
 
 }
 
+#profile-container:hover {
+    background-color: rgb(241, 205, 0);
+
+}
 .new-group-btn {
     width: 50%; 
     margin-bottom: 10px; 
@@ -153,7 +160,7 @@ a.prv-btn:hover {
     margin-right: 25%;
     border: none;
     border-radius: 5px; 
-    background-color: rgb(100, 189, 234);
+    background-color: rgb(49, 49, 48);
     /* Button background color */
     color: white; 
     cursor: pointer;
@@ -176,7 +183,7 @@ a.prv-btn:hover {
     margin-bottom: 1%; 
     border: none;
     border-radius: 5px; 
-    background-color: rgb(100, 189, 234);
+    background-color: rgb(49, 49, 48);
  
     color: white; 
     cursor: pointer;
@@ -191,7 +198,7 @@ a.prv-btn:hover {
     margin-bottom: 3%; 
     border: none;
     border-radius: 5px; 
-    background-color: rgb(100, 189, 234);
+    background-color: rgb(49, 49, 48);
  
     color: white; 
     cursor: pointer;
@@ -254,7 +261,7 @@ a.prv-btn:hover {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: rgb(100, 189, 234);
+    background-color: rgb(49, 49, 48);
 
     color: white;
     cursor: pointer;
