@@ -1,6 +1,6 @@
 {
-    "name": "Password Protector",
-    "short_name": "PW Protector",
+    "name": "Tempest",
+    "short_name": "Tempest",
     "scope": "/",
     "start_url": "/",
     "display": "standalone",
@@ -8,22 +8,22 @@
     "background_color": "#ffffff",
     "icons": [
       {
-        "src": "/images/managerlogomedium.png",
+        "src": "/images/storm_weather.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/images/managerlogomedium.png",
+        "src": "/images/storm_weather.png",
         "sizes": "256x256",
         "type": "image/png"
       },
       {
-        "src": "/images/managerlogomedium.png",
+        "src": "/images/storm_weather.png",
         "sizes": "384x384",
         "type": "image/png"
       },
       {
-        "src": "/images/managerlogomedium.png",
+        "src": "/images/storm_weather.png",
         "sizes": "512x512",
         "type": "image/png"
       }

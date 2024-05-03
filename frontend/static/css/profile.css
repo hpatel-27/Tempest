@@ -12,7 +12,13 @@ html, body {
   text-align: center; 
   flex-grow: 1;
   padding: 20px;
-  background-color: #5094A9;
+  background-color: #dddddd;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 6%;
 }
 
 .profile-container {
@@ -20,62 +26,95 @@ html, body {
   flex-direction: column; 
   background-color: #5094A9;
   height: 100vh;
+  
 }
 
-.side-bar {
-  background-color: #7B9EA9;
-  padding: 10px;
-  width: 100%; 
+
+.card-block {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.card-block .input-container {
+  color: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.new-group-btn,
-.sidebar .site {
-  background-color: rgb(138, 174, 183);
-  border: 1px solid #dddddd;
-  color: white;
-  padding: 8px;
-  margin-bottom: 5px;
-  text-align: center;
-  width: 100%;
+
+
+a.profile-btn {
+  width: 35%; 
+  font-size: 1.5rem;
+  margin-bottom: 10px; 
+  margin-left: 10%;
+  margin-right: 10%;
+  border: none;
+  border-radius: 5px; 
+  background-color: rgb(255, 217, 0);
+  /* Button background color */
+  color: white; 
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+
 }
 
-.profile-header, .profile-info, .change-password-section {
-  background-color: #7B9EA9;
-  padding: 15px;
-  margin-bottom: 10px;
+#profile-container:hover {
+  background-color: rgb(241, 205, 0);
+
+}
+
+.profile-info {
+  background-color: #ffffff;
+  padding: 7%;
   border-radius: 10px;
   color: white;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  width: 45%;
+  align-content: center;
+  margin-left: 27%;
+
 }
 
-.password-input, .profile-input {
+.password-input, .email-input {
   width: 100%;
   padding: 10px;
+  /* padding-right: 24rem; */
+  margin-right: 24rem;
+
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  /* margin-left: 50px; */
 }
-
-.main-menu-btn, .sign-out-btn, .update-profile-btn, .change-password-btn {
-  display: block;
+.username-input {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
-  border: none;
+  /* padding-right: 24rem; */
+  margin-right: 24rem;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #6c757d;
+  /* margin-left: 50px; */
+}
+
+.sign-out-btn, .update-profile-btn {
+  display: block;
+  width: 30%;
+  padding: 10px;
+  margin-top: 3%;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(49, 49, 48);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+
   color: white;
   cursor: pointer;
 }
 
-.btn:hover,
-.update-profile-btn:hover,
-.sign-out-btn:hover,
-.main-menu-btn:hover,
-.change-password-btn:hover {
-  background-color: #545b62;
+.update-profile-btn {
+  margin-right: 39.8%;
 }
 
 @media (min-width: 768px) {
@@ -83,22 +122,14 @@ html, body {
     flex-direction: row; 
   }
 
-  .side-bar {
-    width: 25%; 
-  }
-
   .main-content {
-    width: 75%;
+    width: 70%;
   }
 }
 
 
 #sign-out:hover, #update-profile:hover {
-  background-color: #175d69;
-}
-
-#sign-out:hover, #update-profile:hover {
-  background-color: #175d69;
+  background-color: rgb(31, 31, 31);
 }
 
 #logo-img {
