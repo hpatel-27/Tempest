@@ -1,8 +1,8 @@
 
-### Home Page Wireframe
+### Wireframes
 ![Home Page Wireframe](Tempest.png)
 
-### Notes:
+### Notes for Home page:
 
 **Buttons on the left in the sidebar to quickly redirect into the selected views**
 
