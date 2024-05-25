@@ -1,6 +1,6 @@
 
 ### Home Page Wireframe
-![Home Page Wireframe](Tempest_Home.png)
+![Home Page Wireframe](Tempest.png)
 
 ### Notes:
 
