@@ -1,32 +1,78 @@
-CREATE TABLE IF NOT EXISTS `provider` (
-  `prv_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `prv_name` varchar(50) NOT NULL,
+CREATE TABLE IF NOT EXISTS `year` (
+  `year_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `year_name` varchar(50) NOT NULL,
 --   `prv_account` varchar(150) NOT NULL,
-  PRIMARY KEY (`prv_id`)
+  PRIMARY KEY (`year_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-DELETE FROM `provider`;
-INSERT INTO `provider` (`prv_id`, `prv_name`) VALUES
-    (1, 'amazon.com'),
-    (2, 'spotify.com'),
-    (3, 'facebook.com'),
-    (4, 'linkedin.com'),
-    (5, 'google.com'),
-    (6, 'stackoverflow.com'),
-    (7, 'twitter.com'),
-    (8, 'microsoft.com'),
-    (9, 'instagram.com'),
-    (10, 'github.com'),
-    (11, 'ebay.com'),
-    (12, 'pinterest.com'),
-    (13, 'netflix.com'),
-    (14, 'wikipedia.org'),
-    (15, 'adobe.com'),
-    (16, 'apple.com'),
-    (17, 'walmart.com'),
-    (18, 'forbes.com'),
-    (19, 'wordpress.org'),
-    (20, 'yahoo.com');
+DELETE FROM `year`;
+INSERT INTO `year` (`year_id`, `year_name`) VALUES
+    (1, '2023'),
+    (2, '2024')
+
+CREATE TABLE IF NOT EXISTS `month` (
+  `month_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `month_name` varchar(50) NOT NULL,
+--   `prv_account` varchar(150) NOT NULL,
+  PRIMARY KEY (`month_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DELETE FROM `month`;
+INSERT INTO `month` (`month_id`, `month_name`) VALUES
+    (1, 'January'),
+    (2, 'February'),
+    (3, 'March'),
+    (4, 'April'),
+    (5, 'May'),
+    (6, 'June'),
+    (7, 'July'),
+    (8, 'August'),
+    (9, 'September'),
+    (10, 'October'),
+    (11, 'November'),
+    (12, 'December')
+
+    
+CREATE TABLE IF NOT EXISTS `day` (
+  `day_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `day_name` varchar(50) NOT NULL,
+--   `prv_account` varchar(150) NOT NULL,
+  PRIMARY KEY (`day_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DELETE FROM `day`;
+INSERT INTO `day` (`day_id`, `day_name`) VALUES
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+    (6, '6'),
+    (7, '7'),
+    (8, '8'),
+    (9, '9'),
+    (10, '10'),
+    (11, '11'),
+    (12, '12'),
+    (13, '13'),
+    (14, '14'),
+    (15, '15'),
+    (16, '16'),
+    (17, '17'),
+    (18, '18'),
+    (19, '19'),
+    (20, '20'),
+    (21, '21'),
+    (22, '22'),
+    (23, '23'),
+    (24, '24'),
+    (25, '25'),
+    (26, '26'),
+    (27, '27'),
+    (28, '28'),
+    (29, '29'),
+    (30, '30'),
+    (31, '31')
 
 CREATE TABLE IF NOT EXISTS `account` (
   `act_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
