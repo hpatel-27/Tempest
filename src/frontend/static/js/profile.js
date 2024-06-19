@@ -11,7 +11,8 @@ api.getCurrentUser().then(user => {
         api.logOut().then(() => {
             document.location = "./login";
         });
-    })
+    });
+
     userField.value = user.username;
     emailField.value = user.email;
 

@@ -5,17 +5,24 @@ html, body {
     background-color: #dddddd;
 }
 
-.btn.btn-primary.prv-btn:hover {
-    background-color: rgb(31, 31, 31);
+.btn.btn-primary.sidebar-btn:hover {
+    background-color: rgb(50, 50, 50);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    /* background-color: rgb(87, 87, 87); */
 
 
 }
 
-.btn.btn-primary.prv-btn {
+.btn.btn-primary.sidebar-btn {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
-    background-color: rgb(49, 49, 48);
+    background-color: rgb(70, 70, 70);
+    display: flex;
+    flex-direction: row;
+}
 
+#weighticon,
+#dumbellicon {
+    padding-right: 4%;
 }
 .accounts {
     display: flex;
@@ -57,7 +64,7 @@ html, body {
 }
 
 
-.side .prv-btn {
+.side .sidebar-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,7 +122,7 @@ html, body {
 .update-provider-btn:hover,
 .new-group-btn:hover,
 .save-btn:hover,
-a.prv-btn:hover {
+a.sidebar-btn:hover {
     background-color: rgb(31, 31, 31);
     
 }
@@ -165,7 +172,6 @@ a.profile-btn {
     color: white; 
     cursor: pointer;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
-
 
 }
 
@@ -291,6 +297,9 @@ a.profile-btn {
     margin-top: 3%;
 }
 
+.sidebar-btn {
+    
+}
 
 @media (min-width: 768px) {
     .account {
