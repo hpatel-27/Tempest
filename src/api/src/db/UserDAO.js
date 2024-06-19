@@ -147,164 +147,164 @@ const UserDAO = {
     // Get all of the provider ids from user_provider and then retrieve each provider by id
     // I want these to use the provider dao to retrieve them.
     // GREEN LIGHT
-    getUserProviders: async (userId) => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                userId = parseInt(userId);
+    // getUserProviders: async (userId) => {
+    //     return new Promise(async (resolve, reject) => {
+    //         try {
+    //             userId = parseInt(userId);
     
-                const results = await new Promise((resolve, reject) => {
-                    db.query('SELECT * FROM user_provider WHERE upr_usr_id = ?', [userId])
-                        .then(({ results }) => {
-                            resolve(results);
-                        })
-                        .catch(err => {
-                            reject(err);
-                        });
-                });
+    //             const results = await new Promise((resolve, reject) => {
+    //                 db.query('SELECT * FROM user_provider WHERE upr_usr_id = ?', [userId])
+    //                     .then(({ results }) => {
+    //                         resolve(results);
+    //                     })
+    //                     .catch(err => {
+    //                         reject(err);
+    //                     });
+    //             });
 
-                const providerIds = results.map(row => row.upr_prv_id);
-                const providerPromises = providerIds.map(providerId => ProviderDAO.getProviderById(providerId));
+    //             const providerIds = results.map(row => row.upr_prv_id);
+    //             const providerPromises = providerIds.map(providerId => ProviderDAO.getProviderById(providerId));
     
-                const providers = await Promise.all(providerPromises);
-                resolve(providers);
-            } catch (error) {
-                reject(error);
-            }
-        });
-    },
+    //             const providers = await Promise.all(providerPromises);
+    //             resolve(providers);
+    //         } catch (error) {
+    //             reject(error);
+    //         }
+    //     });
+    // },
 
-    // YELLOW LIGHT
-    getUserProviderById: async (userId, providerId) => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                // Parse userId and providerId as integers
-                userId = parseInt(userId);
-                providerId = parseInt(providerId);
+    // // YELLOW LIGHT
+    // getUserProviderById: async (userId, providerId) => {
+    //     return new Promise(async (resolve, reject) => {
+    //         try {
+    //             // Parse userId and providerId as integers
+    //             userId = parseInt(userId);
+    //             providerId = parseInt(providerId);
 
-                // Check if the user-provider connection exists
-                const userProviderExists = await UserDAO.checkUserProviderConnection(userId, providerId);
+    //             // Check if the user-provider connection exists
+    //             const userProviderExists = await UserDAO.checkUserProviderConnection(userId, providerId);
 
-                // If user-provider connection exists, retrieve provider details
-                if (userProviderExists) {
-                    const provider = await ProviderDAO.getProviderById(providerId);
-                    resolve(provider);
-                } else {
-                    // If user-provider connection does not exist, reject with an error
-                    reject({ status: 404, error: `User-provider connection not found for user ${userId} and provider ${providerId}` });
-                }
+    //             // If user-provider connection exists, retrieve provider details
+    //             if (userProviderExists) {
+    //                 const provider = await ProviderDAO.getProviderById(providerId);
+    //                 resolve(provider);
+    //             } else {
+    //                 // If user-provider connection does not exist, reject with an error
+    //                 reject({ status: 404, error: `User-provider connection not found for user ${userId} and provider ${providerId}` });
+    //             }
 
-            } catch (error) {
-                // Throw any encountered errors
-                reject({ status: 500, error: 'Internal server error' });
-            }
-        });
-    },
+    //         } catch (error) {
+    //             // Throw any encountered errors
+    //             reject({ status: 500, error: 'Internal server error' });
+    //         }
+    //     });
+    // },
 
-    // Add the provider first to get the id and then add the user provider mapping
-    // I want this to use the provider dao to add them.
-    // GREEN LIGHT
-    addProvider: async (userId, newProvider) => {
-        return new Promise(async (resolve, reject) => {
-            userId = parseInt(userId);
-            try {
-                // Create the provider using the ProviderDAO
-                const createdProvider = await ProviderDAO.createProvider(newProvider);
+    // // Add the provider first to get the id and then add the user provider mapping
+    // // I want this to use the provider dao to add them.
+    // // GREEN LIGHT
+    // addProvider: async (userId, newProvider) => {
+    //     return new Promise(async (resolve, reject) => {
+    //         userId = parseInt(userId);
+    //         try {
+    //             // Create the provider using the ProviderDAO
+    //             const createdProvider = await ProviderDAO.createProvider(newProvider);
     
-                // Extract the provider ID from the created provider
-                const newProviderId = createdProvider.id;
+    //             // Extract the provider ID from the created provider
+    //             const newProviderId = createdProvider.id;
     
-                // Insert the user-provider relationship into the user_provider table
-                db.query('INSERT INTO user_provider (upr_usr_id, upr_prv_id) VALUES (?, ?)', [userId, newProviderId])
-                    .then(({ results }) => {
-                        if (results.affectedRows > 0) {
-                            resolve(createdProvider);
-                        } else {
-                            reject({ status: 404, error: 'Could not add provider for some reason idk.' });
-                        }
-                    })
-                    .catch(error => {
-                        reject(error);
-                    });
+    //             // Insert the user-provider relationship into the user_provider table
+    //             db.query('INSERT INTO user_provider (upr_usr_id, upr_prv_id) VALUES (?, ?)', [userId, newProviderId])
+    //                 .then(({ results }) => {
+    //                     if (results.affectedRows > 0) {
+    //                         resolve(createdProvider);
+    //                     } else {
+    //                         reject({ status: 404, error: 'Could not add provider for some reason idk.' });
+    //                     }
+    //                 })
+    //                 .catch(error => {
+    //                     reject(error);
+    //                 });
 
-            } catch (error) {
-                // If any error occurs during the process, reject with the error
-                reject(error);
-            }
-        });
-    },
+    //         } catch (error) {
+    //             // If any error occurs during the process, reject with the error
+    //             reject(error);
+    //         }
+    //     });
+    // },
 
-    // delete the provider and then the user_provider mapping
-    // Use the provider dao for this behavior
-    // GREEN LIGHT
-    deleteProvider: async (userId, providerId) => {
-        return new Promise(async (resolve, reject) => {
-            try {
+    // // delete the provider and then the user_provider mapping
+    // // Use the provider dao for this behavior
+    // // GREEN LIGHT
+    // deleteProvider: async (userId, providerId) => {
+    //     return new Promise(async (resolve, reject) => {
+    //         try {
 
-                userId = parseInt(userId);
-                providerId = parseInt(providerId);
+    //             userId = parseInt(userId);
+    //             providerId = parseInt(providerId);
 
-                // Check if the user-provider connection exists
-                const userProviderExists = await UserDAO.checkUserProviderConnection(userId, providerId);
+    //             // Check if the user-provider connection exists
+    //             const userProviderExists = await UserDAO.checkUserProviderConnection(userId, providerId);
 
-                // If user-provider connection exists, retrieve provider details
-                if (userProviderExists) {
+    //             // If user-provider connection exists, retrieve provider details
+    //             if (userProviderExists) {
                     
-                    // Delete provider from the provider table
-                    // Potentially not necessary if I can cascade delete with a query constraint
-                    await ProviderDAO.deleteProvider(providerId);    
-                    resolve({ message: 'Provider deleted successfully' });
+    //                 // Delete provider from the provider table
+    //                 // Potentially not necessary if I can cascade delete with a query constraint
+    //                 await ProviderDAO.deleteProvider(providerId);    
+    //                 resolve({ message: 'Provider deleted successfully' });
 
-                } else {
-                    // If user-provider connection does not exist, reject with an error
-                    reject({ status: 404, error: `User-provider connection not found for user ${userId} and provider ${providerId}` });
-                }
+    //             } else {
+    //                 // If user-provider connection does not exist, reject with an error
+    //                 reject({ status: 404, error: `User-provider connection not found for user ${userId} and provider ${providerId}` });
+    //             }
     
-            } catch (error) {
-                reject({ status: 500, error: 'Internal server error' });
-            }
-        });
-    },
+    //         } catch (error) {
+    //             reject({ status: 500, error: 'Internal server error' });
+    //         }
+    //     });
+    // },
 
-    //GREEN LIGHT
-    changeProviderName: async (userId, providerId, newName) => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                userId = parseInt(userId);
-                providerId = parseInt(providerId);     
+    // //GREEN LIGHT
+    // changeProviderName: async (userId, providerId, newName) => {
+    //     return new Promise(async (resolve, reject) => {
+    //         try {
+    //             userId = parseInt(userId);
+    //             providerId = parseInt(providerId);     
                 
-                const userProviderExists = await UserDAO.checkUserProviderConnection(userId, providerId);
+    //             const userProviderExists = await UserDAO.checkUserProviderConnection(userId, providerId);
 
-                // If user-provider connection exists, retrieve provider details
-                if (userProviderExists) {
-                    const message = await ProviderDAO.changeProviderName(providerId, newName);
-                    resolve( message );
-                } else {
-                    // If user-provider connection does not exist, reject with an error
-                    reject( { status: 404, error: `User-provider connection not found for user ${userId} and provider ${providerId}` } );
-                }
-            } catch (error) {
-                // Throw any encountered errors
-                throw error;
-            }
-        })
-    },
+    //             // If user-provider connection exists, retrieve provider details
+    //             if (userProviderExists) {
+    //                 const message = await ProviderDAO.changeProviderName(providerId, newName);
+    //                 resolve( message );
+    //             } else {
+    //                 // If user-provider connection does not exist, reject with an error
+    //                 reject( { status: 404, error: `User-provider connection not found for user ${userId} and provider ${providerId}` } );
+    //             }
+    //         } catch (error) {
+    //             // Throw any encountered errors
+    //             throw error;
+    //         }
+    //     })
+    // },
 
 
-    checkUserProviderConnection: async (userId, providerId) => {
-        return new Promise((resolve, reject) => {
-            try {
-                db.query('SELECT COUNT(*) AS count FROM user_provider WHERE upr_usr_id = ? AND upr_prv_id = ?', [userId, providerId])
-                    .then(({ results }) => {
-                        resolve(results[0].count > 0);
-                    })
-                    .catch(err => {
-                        reject(err);
-                    });
-            } catch (error) {
-                reject({ status: 500, error: 'Internal server error' });
-            }
-        });
-    },
+    // checkUserProviderConnection: async (userId, providerId) => {
+    //     return new Promise((resolve, reject) => {
+    //         try {
+    //             db.query('SELECT COUNT(*) AS count FROM user_provider WHERE upr_usr_id = ? AND upr_prv_id = ?', [userId, providerId])
+    //                 .then(({ results }) => {
+    //                     resolve(results[0].count > 0);
+    //                 })
+    //                 .catch(err => {
+    //                     reject(err);
+    //                 });
+    //         } catch (error) {
+    //             reject({ status: 500, error: 'Internal server error' });
+    //         }
+    //     });
+    // },
     
 
 };
