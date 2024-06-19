@@ -1,15 +1,14 @@
-CREATE TABLE IF NOT EXISTS Users (
-  user_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  user_username VARCHAR(64) NOT NULL,
-  user_password VARCHAR(255) NOT NULL,
-  user_salt VARCHAR(100) NOT NULL,
-  user_email VARCHAR(64) NOT NULL UNIQUE,
-  user_createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (user_id)
+CREATE TABLE IF NOT EXISTS user (
+  usr_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  usr_username VARCHAR(64) NOT NULL,
+  usr_password VARCHAR(255) NOT NULL,
+  usr_salt VARCHAR(100) NOT NULL,
+  usr_email VARCHAR(64) NOT NULL UNIQUE,
+  PRIMARY KEY (usr_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-DELETE FROM Users;
-INSERT INTO Users (user_username, user_password, user_salt, user_email)
+DELETE FROM user;
+INSERT INTO user (usr_username, usr_password, usr_salt, usr_email)
 VALUES ('hpatel', 'fa618ff05c687488bd740bd958a03380b47f75d61bd2172afa428954df92b55b', '1pdj4md7n24zr5u3wy3olp1r1a6p7otw', 'hpatel@mail.com'),
 	('kkaneki', 'de67fbed51baa01ec9843db58bffafd28dfb02619875626002ccfe4533d353a1', 'k974s9egj23sujb7jhltggqh0dnss2eh', 'student2@mail.com'),
     ('eyeager', 'f5a05548ea49258d40eecf7afabc04b55f68953d5dc67bfd9dc90df7b51c7574', 'nhug7j4pps5zjceyjzgan5ftbnnngipf', 'kkaneki@mail.com'),
@@ -23,15 +22,15 @@ VALUES ('hpatel', 'fa618ff05c687488bd740bd958a03380b47f75d61bd2172afa428954df92b
 
 CREATE TABLE IF NOT EXISTS Workouts (
   workout_id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  user_id INT(10) UNSIGNED NOT NULL,
+  usr_id INT(10) UNSIGNED NOT NULL,
   workout_date DATE NOT NULL,
   PRIMARY KEY (workout_id),
-  FOREIGN KEY (user_id) REFERENCES Users(user_id)
+  FOREIGN KEY (usr_id) REFERENCES user(usr_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DELETE FROM Workouts;
-INSERT INTO Workouts (user_id, workout_date)
-VALUES ((SELECT user_id FROM Users WHERE user_username = 'hpatel'), '2024-06-18');
+INSERT INTO Workouts (usr_id, workout_date)
+VALUES ((SELECT usr_id FROM user WHERE usr_username = 'hpatel'), '2024-06-18');
 
 
 CREATE TABLE IF NOT EXISTS Exercises (
@@ -54,6 +53,9 @@ CREATE TABLE IF NOT EXISTS WorkoutExercises (
     weights DECIMAL(5, 2),
     reps INT,
     numSets INT,
+    PRIMARY KEY (workoutExercise_id),
+    FOREIGN KEY (workout_id) REFERENCES Workouts(workout_id),
+    FOREIGN KEY (exercise_id) REFERENCES Exercises(exercise_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DELETE FROM WorkoutExercises;
